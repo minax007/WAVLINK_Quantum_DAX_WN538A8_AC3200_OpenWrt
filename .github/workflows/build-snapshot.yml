@@ -53,13 +53,13 @@ jobs:
       run: |
         cd openwrt
         make image PROFILE="${{ env.PROFILE }}" PACKAGES="${{ env.PACKAGES_TYPE1 }}"
-        mv bin/targets/${{ env.BOARD }}/${{ env.SUBTARGET }}/openwrt-${{ env.BOARD }}-${{ env.SUBTARGET }}-${{ env.PROFILE }}-phicomm_k3-squashfs.trx OpenWrt_WAVLINK_Quantum_DAX_${{ env.OPENWRT_VERSION }}_squashfs.trx
+        mv bin/targets/${{ env.BOARD }}/${{ env.SUBTARGET }}/openwrt-${{ env.BOARD }}-${{ env.SUBTARGET }}-${{ env.PROFILE }}-squashfs.trx OpenWrt_WAVLINK_Quantum_DAX_${{ env.OPENWRT_VERSION }}_squashfs.trx
 #    - name: Build the image of type 2
 #      id: type2
 #      run: |
 #        cd openwrt
 #        make image PROFILE="${{ env.PROFILE }}" PACKAGES="${{ env.PACKAGES_TYPE2 }}"
-#        mv bin/targets/${{ env.BOARD }}/${{ env.SUBTARGET }}/openwrt-${{ env.BOARD }}-${{ env.SUBTARGET }}-${{ env.PROFILE }}-phicomm_k3-squashfs.trx OpenWrt_WAVLINK_Quantum_DAX_${{ env.OPENWRT_VERSION }}_MESH_squashfs.trx
+#        mv bin/targets/${{ env.BOARD }}/${{ env.SUBTARGET }}/openwrt-${{ env.BOARD }}-${{ env.SUBTARGET }}-${{ env.PROFILE }}-squashfs.trx OpenWrt_WAVLINK_Quantum_DAX_${{ env.OPENWRT_VERSION }}_MESH_squashfs.trx
 
 
     - name: Create Release
