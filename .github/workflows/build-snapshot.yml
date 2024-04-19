@@ -53,7 +53,7 @@ jobs:
       run: |
         cd openwrt
         
-        # Replace FOSS WiFi firmware by proprietary Broadcom WiFi firmware 
+#       Replace FOSS WiFi firmware by proprietary Broadcom WiFi firmware
         wget -nv https://github.com/yangxu52/Phicomm-k3-Wireless-Firmware/raw/master/brcmfmac4366c-pcie.bin.69027 -O package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
         
         make image PROFILE="${{ env.PROFILE }}" PACKAGES="${{ env.PACKAGES_TYPE1 }}"
