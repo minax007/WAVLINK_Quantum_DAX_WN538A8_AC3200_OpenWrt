@@ -47,7 +47,6 @@ jobs:
       run: |
         wget -O packages.txt https://github.com/minax007/packages/raw/main/external-package-urls.txt
         cat packages.txt | xargs wget -P /mnt/workdir/openwrt-imagebuilder-${{ env.BOARD }}-${{ env.SUBTARGET }}.Linux-x86_64/packages
-        wget -nv https://github.com/yangxu52/Phicomm-k3-Wireless-Firmware/raw/master/brcmfmac4366c-pcie.bin.69027 -O /mnt/workdir/openwrt-imagebuilder-${{ env.BOARD }}-${{ env.SUBTARGET }}.Linux-x86_64/lib/firmware/brcm/brcmfmac4366c-pcie.bin
 
     - name: Build the image of type 1
       id: type1
