@@ -52,6 +52,10 @@ jobs:
       id: type1
       run: |
         cd openwrt
+        
+        # Replace FOSS WiFi firmware by proprietary Broadcom WiFi firmware 
+        wget -nv https://github.com/yangxu52/Phicomm-k3-Wireless-Firmware/raw/master/brcmfmac4366c-pcie.bin.69027 -O package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
+        
         make image PROFILE="${{ env.PROFILE }}" PACKAGES="${{ env.PACKAGES_TYPE1 }}"
         mv bin/targets/${{ env.BOARD }}/${{ env.SUBTARGET }}/openwrt-${{ env.BOARD }}-${{ env.SUBTARGET }}-${{ env.PROFILE }}-squashfs.trx OpenWrt_WAVLINK_Quantum_DAX_${{ env.OPENWRT_VERSION }}_squashfs.trx
 #    - name: Build the image of type 2
