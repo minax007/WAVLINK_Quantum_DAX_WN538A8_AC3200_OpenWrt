@@ -9,7 +9,8 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt
+  REPO_URL: https://github.com/coolsnowwolf/lede 
+  #https://github.com/openwrt/openwrt
   REPO_BRANCH: main
   FEEDS_CONF_FILE: openwrt/feeds.conf.default
   CONFIG_FILE: openwrt/.config
