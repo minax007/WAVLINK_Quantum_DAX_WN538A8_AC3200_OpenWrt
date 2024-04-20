@@ -67,6 +67,8 @@ jobs:
         chmod +x $FEEDS
         cd openwrt
         $GITHUB_WORKSPACE/$FEEDS
+
+    - name: Check out repo 
       uses: actions/checkout@v2
 
     - name: Update description content in feeds
