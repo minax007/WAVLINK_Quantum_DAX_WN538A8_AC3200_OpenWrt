@@ -48,6 +48,30 @@ jobs:
         wget -O packages.txt https://github.com/minax007/packages/raw/main/external-package-urls.txt
         cat packages.txt | xargs wget -P /mnt/workdir/openwrt-imagebuilder-${{ env.BOARD }}-${{ env.SUBTARGET }}.Linux-x86_64/packages
 
+# ==================================================================================================
+
+    - name: Include additional repositories
+      run: |
+        cd openwrt
+        
+        echo 'Start including Phicomm K3 screen plug-in'
+        rm -rf package/lean/luci-app-k3screenctrl
+        git clone https://github.com/yangxu52/luci-app-k3screenctrl.git package/lean/luci-app-k3screenctrl
+        echo 'Including Phicomm K3 screen plug-in completed'
+
+        echo 'Start replacing the Phicomm K3 screen driver plug-in'
+        rm -rf package/lean/k3screenctrl
+        git clone https://github.com/yangxu52/k3screenctrl_build.git package/lean/k3screenctrl/
+        echo 'Replacing the Phicomm K3 screen driver plug-in completed'
+
+    - name: Update description content in feeds
+      run: cd openwrt && ./scripts/feeds update -a
+
+    - name: Install the content described in feeds
+      run: cd openwrt && ./scripts/feeds install -a
+
+# ==================================================================================================
+       
     - name: Build the image of type 1
       id: type1
       run: |
